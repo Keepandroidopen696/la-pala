@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>chamba</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0b141a;color:white;font-family:system-ui;height:100dvh;overflow:hidden}
+#screen1{height:100dvh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:#111b21;padding:20px;text-align:center}
+#screen1 h1{font-size:28px;margin-bottom:20px}
+.btns{display:flex;gap:20px}
+.btns button{padding:15px 40px;border:0;border-radius:30px;font-size:18px;font-weight:900;cursor:pointer}
+#si{background:#00a884;color:white} #no{background:#2a3942;color:white}
+
+#screen2{display:none;height:100dvh;background:#0b141a;flex-direction:column;position:relative}
+#screen2::before{content:"";position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg width='200' height='200' xmlns='http://www.w3.org/2000/svg'%3E%3Ctext x='10' y='20' font-size='12' fill='%231a2a33'%3E💬📞🎥%3C/text%3E%3C/svg%3E");opacity:0.2}
+.top{padding-top:60px;text-align:center;z-index:1;position:relative}
+.top p{font-size:26px;letter-spacing:1px}
+.circle{width:180px;height:180px;background:white;border-radius:50%;margin:40px auto;display:flex;align-items:center;justify-content:center;animation: pulse 1s infinite;z-index:1}
+.circle img{width:70%;height:80%;object-fit:contain}
+@keyframes pulse{0%{transform:scale(1)}50%{transform:scale(1.05)}100%{transform:scale(1)}}
+.arrows{color:#3a4a54;text-align:center;font-size:10px;margin-top:10px;z-index:1}
+.bottom{position:absolute;bottom:0;width:100%;display:flex;justify-content:space-around;padding:30px 20px 40px;background:linear-gradient(transparent,#0b141a 30%);z-index:1}
+.action{display:flex;flex-direction:column;align-items:center;gap:8px}
+.icon{width:55px;height:55px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:22px}
+.red{background:#f15c6d} .green{background:#00a884;animation: ring 0.8s infinite}
+.gray{background:#2a3942}
+.action span{font-size:9px;color:#8696a0;text-align:center;max-width:70px;line-height:10px}
+@keyframes ring{0%,100%{transform:rotate(0)}25%{transform:rotate(10deg)}75%{transform:rotate(-10deg)}}
+</style>
+</head>
+<body>
+
+<div id="screen1">
+<h1>¿Jalas a la chamba? 👷‍♂️</h1>
+<div class="btns">
+<button id="si">SÍ</button>
+<button id="no">NO</button>
+</div>
+</div>
+
+<div id="screen2">
+<div class="top"><p>chamba</p></div>
+<div class="circle"><img src="https://i.imgur.com/2yaf2wb.png" alt="pala"></div>
+<div class="arrows">^<br>^<br>^</div>
+<div class="bottom">
+<div class="action"><div class="icon red">📵</div><span>Tolak</span></div>
+<div class="action"><div class="icon green">📞</div><span>Gesek ke atas untuk menerima</span></div>
+<div class="action"><div class="icon gray">💬</div><span>Kirim pesan</span></div>
+</div>
+<audio id="ring" loop src="https://cdn.pixabay.com/audio/2022/03/10/audio_9bd4170e7c.mp3"></audio>
+</div>
+
+<script>
+const s1=document.getElementById('screen1'), s2=document.getElementById('screen2'), ring=document.getElementById('ring');
+document.getElementById('si').onclick=()=>{
+ s1.style.display='none'; s2.style.display='flex';
+ ring.play().catch(()=>{}); 
+ if(navigator.vibrate) navigator.vibrate([500,200,500,200,500]);
+}
+document.getElementById('no').onclick=()=>{
+ document.body.innerHTML="<div style='height:100dvh;display:flex;justify-content:center;align-items:center;background:#000;color:white;font-family:monospace;text-align:center;padding:20px'>Te quedaste sin chamba por huevón<br><br>👷‍♂️🔨</div>"
+}
+document.querySelector('.red').onclick=()=>location.reload();
+document.querySelector('.green').onclick=()=>{
+ alert('CONTESTASTE LA CHAMBA, YA TE VIERON CON LA PALA JAJA');
+ ring.pause();
+}
+</script>
+</body>
+</html>
