@@ -2,134 +2,84 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#080b10">
-<meta name="description" content="La pala te está marcando. ¿Jalas a la chamba?">
-<title>La Pala | Chamba entrante</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#075e54">
+<title>La Pala | Llamada entrante</title>
 <style>
-:root{color-scheme:dark;--bg:#080b10;--panel:#111820;--panel2:#18232c;--line:#26333e;--text:#f4f7fa;--muted:#8c9aa5;--green:#19d69a;--red:#ff5367;--gold:#ffd166;--shadow:0 24px 80px #0009}
-*{box-sizing:border-box}
-html,body{margin:0;min-height:100%;font-family:system-ui,-apple-system,"Segoe UI",sans-serif;background:var(--bg);color:var(--text)}
-body{min-height:100dvh;overflow-x:hidden;background:radial-gradient(ellipse at 50% -15%,#183b36 0,transparent 42%),radial-gradient(ellipse at 100% 90%,#231533 0,transparent 35%),var(--bg)}
-button{font:inherit;cursor:pointer;border:0;color:inherit;touch-action:manipulation}
-.screen{min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:22px}
-#incoming{display:flex}
-.call-card{width:min(100%,430px);position:relative;overflow:hidden;border:1px solid #ffffff12;border-radius:30px;background:linear-gradient(155deg,#17232b 0%,#0e151c 60%,#10111a 100%);box-shadow:var(--shadow);padding:clamp(24px,6vw,38px);text-align:center}
-.call-card:before{content:"";position:absolute;width:270px;height:270px;border-radius:50%;background:#18d69a12;filter:blur(28px);top:-150px;left:50%;transform:translateX(-50%);pointer-events:none}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#aab8c1;font-size:11px;font-weight:800;letter-spacing:2.2px;text-transform:uppercase}
-.live-dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 14px #19d69a}
-.logo-wrap{width:112px;height:112px;margin:27px auto 20px;position:relative;display:grid;place-items:center}
-.ring,.ring:before,.ring:after{position:absolute;inset:0;border:1px solid #19d69a45;border-radius:50%;content:"";animation:ring 2.8s ease-out infinite}
-.ring:before{inset:-13px;animation-delay:.55s}.ring:after{inset:-26px;animation-delay:1.1s}
-.logo{width:92px;height:92px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#243b3b,#121e25);border:1px solid #19d69a55;font-size:48px;box-shadow:0 0 35px #19d69a20}
-h1{font-size:clamp(27px,7vw,36px);line-height:1.1;letter-spacing:-1.3px;margin:0 0 12px}
-.subtitle{color:var(--muted);font-size:15px;margin:0 auto;max-width:280px}
-.caller{margin:25px 0 23px;padding:12px 14px;border:1px solid #ffffff0c;background:#ffffff05;border-radius:14px;display:flex;align-items:center;justify-content:center;gap:10px;color:#d8e1e7;font-size:13px}
-.caller strong{color:#fff}.caller small{color:var(--muted)}
-.actions{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px}
-.action{min-height:62px;border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;font-weight:850;transition:transform .16s,filter .16s}
-.action:active{transform:scale(.97)}.action .symbol{font-size:22px;line-height:1}.action small{font-size:11px;font-weight:650;opacity:.85}
-.answer{background:linear-gradient(135deg,#16c98f,#0c9d76);box-shadow:0 9px 25px #19d69a25;color:#04140f}
-.decline{background:#29343e;color:#f2f5f7;border:1px solid #ffffff0b}
-.footer-note{font-size:11px;color:#63717b;margin:21px 0 0}
-#call{display:none;flex-direction:column;justify-content:space-between;gap:18px;background:radial-gradient(ellipse at 50% 0%,#153b35 0,transparent 50%),#080d12;padding:24px 18px max(24px,env(safe-area-inset-bottom))}
-.call-head{text-align:center;padding-top:10px}.call-head .eyebrow{justify-content:center}.call-head h2{font-size:27px;letter-spacing:-.8px;margin:10px 0 4px}.call-head p{color:var(--muted);font-size:13px;margin:0}
-.video-stage{width:min(100%,410px);margin:auto;position:relative;border-radius:26px;overflow:hidden;border:1px solid #ffffff18;background:#101820;box-shadow:0 20px 60px #0008;aspect-ratio:4/5;max-height:58dvh;display:grid;place-items:center}
-.video-stage video{width:100%;height:100%;object-fit:cover;display:block;background:#101820}
-.video-caption{position:absolute;left:12px;right:12px;bottom:12px;padding:11px 13px;border-radius:14px;background:#080b10b8;backdrop-filter:blur(10px);border:1px solid #ffffff15;text-align:center;font-size:12px;color:#dfe8ed}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Arial,system-ui,sans-serif;background:#0b141a;color:#e9edef}
+body{min-height:100vh;background:radial-gradient(ellipse at 50% 0%,#123b36 0,transparent 48%),#0b141a}
+button{font:inherit;border:0;cursor:pointer;color:inherit;touch-action:manipulation}
+.screen{min-height:100vh;min-height:100dvh;display:flex;align-items:center;justify-content:center;padding:22px}
+#incoming{display:flex}.call-card{width:min(100%,430px);text-align:center;padding:30px 24px}
+.topline{font-size:13px;letter-spacing:.5px;color:#aebac1;margin-bottom:42px}
+.avatar{width:118px;height:118px;margin:0 auto 22px;border-radius:50%;display:grid;place-items:center;background:#263b43;border:4px solid #344c54;font-size:62px;box-shadow:0 0 0 8px #ffffff08}
+h1{font-size:29px;margin:0 0 9px;font-weight:600}.subtitle{margin:0;color:#aebac1;font-size:15px}
+.caller{margin:25px auto 0;color:#d1d9dd;font-size:13px}
+.actions{display:flex;justify-content:space-around;gap:38px;margin:72px auto 0;max-width:290px}
+.action{display:flex;flex-direction:column;align-items:center;gap:11px;background:transparent;color:#dce3e7;font-size:13px}
+.action-icon{width:66px;height:66px;border-radius:50%;display:grid;place-items:center;font-size:27px;box-shadow:0 5px 18px #0005}
+.decline .action-icon{background:#f15c6d}.answer .action-icon{background:#25d366;color:#073b24}
+.action:active .action-icon{transform:scale(.94)}.footer-note{margin:42px 0 0;color:#75858e;font-size:11px}
+#call{display:none;flex-direction:column;justify-content:space-between;gap:18px;padding:26px 18px max(26px,env(safe-area-inset-bottom));background:#0b141a}
+.call-head{text-align:center;padding-top:8px}.call-head .topline{margin:0 0 13px}.call-head h2{font-size:25px;margin:0 0 6px}.call-head p{font-size:13px;color:#aebac1;margin:0}
+.video-stage{width:min(100%,410px);margin:auto;position:relative;border-radius:18px;overflow:hidden;background:#172229;aspect-ratio:4/5;max-height:58vh;max-height:58dvh;display:grid;place-items:center}
+.video-stage video{width:100%;height:100%;object-fit:cover;display:block}.video-caption{position:absolute;left:12px;right:12px;bottom:12px;padding:11px;border-radius:10px;background:#0b141acc;text-align:center;font-size:12px;pointer-events:none}
 .call-controls{width:min(100%,410px);margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
-.control{display:flex;flex-direction:column;align-items:center;gap:8px;color:#9eabb5;font-size:11px;font-weight:700;background:transparent}
-.control-icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:23px;background:#202b34;border:1px solid #ffffff10;color:#fff}
-.control.end .control-icon{background:var(--red);color:white;border:0;box-shadow:0 8px 24px #ff53672b}
-.control.work .control-icon{background:var(--green);color:#052016;border:0}
-.toast{position:fixed;left:50%;bottom:max(18px,env(safe-area-inset-bottom));transform:translateX(-50%);width:max-content;max-width:calc(100% - 28px);padding:12px 16px;border:1px solid #19d69a55;border-radius:14px;background:#111b20;color:#e9fff7;box-shadow:var(--shadow);font-size:13px;font-weight:700;text-align:center;display:none;z-index:5}
-@keyframes ring{0%{transform:scale(.75);opacity:.75}100%{transform:scale(1.25);opacity:0}}
-@media(max-width:420px){.screen{padding:14px}.call-card{border-radius:25px;padding:25px 21px}.logo-wrap{margin:23px auto 18px}.actions{gap:10px}.action{min-height:58px}.video-stage{aspect-ratio:3/4}}
-@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important;transition:none!important}}
+.control{display:flex;flex-direction:column;align-items:center;gap:8px;color:#aebac1;font-size:12px;background:transparent}
+.control-icon{width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:23px;background:#202c33;color:#fff}
+.control.end .control-icon{background:#f15c6d}.control.work .control-icon{background:#075e54}
+.toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);max-width:calc(100% - 28px);padding:12px 16px;border-radius:12px;background:#233138;color:#e9edef;font-size:13px;text-align:center;display:none;z-index:5}
+@media(max-width:420px){.screen{padding:14px}.actions{margin-top:65px}.video-stage{aspect-ratio:3/4}}
 </style>
 </head>
 <body>
 <section class="screen" id="incoming" aria-label="Llamada entrante">
-  <main class="call-card">
-    <div class="eyebrow"><span class="live-dot"></span> Llamada entrante</div>
-    <div class="logo-wrap" aria-hidden="true"><div class="ring"></div><div class="logo">🪏</div></div>
-    <h1>¿Jalas a la<br>chamba?</h1>
-    <p class="subtitle">La pala te está marcando…<br>y no acepta buzón.</p>
-    <div class="caller"><span>📞</span><span><strong>LA PALA</strong><br><small>Chamba urgente · Patrón</small></span></div>
-    <div class="actions">
-      <button class="action decline" id="no"><span class="symbol">✕</span><small>No, gracias</small></button>
-      <button class="action answer" id="si"><span class="symbol">☎</span><small>¡A chambear!</small></button>
-    </div>
-    <p class="footer-note">La oportunidad laboral no se va a contestar sola.</p>
-  </main>
+ <main class="call-card">
+  <div class="topline">WHATSAPP · LLAMADA ENTRANTE</div>
+  <div class="avatar" aria-hidden="true">🪏</div>
+  <h1>LA PALA</h1>
+  <p class="subtitle">Llamada entrante…</p>
+  <div class="caller">¿Jalas a la chamba? · El patrón</div>
+  <div class="actions">
+   <button class="action decline" id="no" aria-label="Rechazar llamada"><span class="action-icon">✕</span><span>Rechazar</span></button>
+   <button class="action answer" id="si" aria-label="Aceptar llamada"><span class="action-icon">☎</span><span>Aceptar</span></button>
+  </div>
+  <p class="footer-note">La oportunidad laboral no se va a contestar sola.</p>
+ </main>
 </section>
 <section class="screen" id="call" aria-label="Llamada conectada">
-  <header class="call-head">
-    <div class="eyebrow"><span class="live-dot"></span> Conectado</div>
-    <h2>La Pala 🪏</h2>
-    <p id="callStatus">Te está esperando en la obra…</p>
-  </header>
-  <div class="video-stage">
-    <video id="v" src="./chamba.mp4" loop playsinline preload="metadata"></video>
-    <div class="video-caption">A CHAMBEAR 12 HORAS 👊</div>
-  </div>
-  <div class="call-controls">
-    <button class="control" id="mute"><span class="control-icon">🔊</span><span>Sonido</span></button>
-    <button class="control end" id="end"><span class="control-icon">✕</span><span>Colgar</span></button>
-    <button class="control work" id="work"><span class="control-icon">👷</span><span>Chambear</span></button>
-  </div>
+ <header class="call-head"><div class="topline">LLAMADA DE WHATSAPP</div><h2>LA PALA 🪏</h2><p>Conectado · A chambear</p></header>
+ <div class="video-stage">
+  <video id="video" src="chamba.mp4" loop playsinline preload="metadata"></video>
+  <div class="video-caption">A CHAMBEAR 12 HORAS 👊</div>
+ </div>
+ <div class="call-controls">
+  <button class="control" id="mute"><span class="control-icon">🔊</span><span>Sonido</span></button>
+  <button class="control end" id="end"><span class="control-icon">✕</span><span>Colgar</span></button>
+  <button class="control work" id="work"><span class="control-icon">👷</span><span>Chambear</span></button>
+ </div>
 </section>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
-(() => {
-  const incoming = document.getElementById('incoming');
-  const call = document.getElementById('call');
-  const video = document.getElementById('v');
-  const no = document.getElementById('no');
-  const toast = document.getElementById('toast');
-  let noTimer, toastTimer;
-
-  function showToast(message) {
-    toast.textContent = message;
-    toast.style.display = 'block';
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(() => toast.style.display = 'none', 2600);
-  }
-
-  async function answer() {
-    clearTimeout(noTimer);
-    incoming.style.display = 'none';
-    call.style.display = 'flex';
-    video.muted = false;
-    try { await video.play(); }
-    catch { video.muted = true; try { await video.play(); } catch {} showToast('Toca el video para activar el sonido'); }
-    if (navigator.vibrate) navigator.vibrate([180, 80, 180]);
-  }
-
-  document.getElementById('si').addEventListener('click', answer);
-  no.addEventListener('click', () => {
-    no.textContent = 'Di que sí, we 😔';
-    no.disabled = true;
-    noTimer = setTimeout(answer, 850);
-  });
-
-  document.getElementById('end').addEventListener('click', () => {
-    video.pause();
-    call.style.display = 'none';
-    incoming.style.display = 'flex';
-    no.textContent = '✕  No, gracias';
-    no.disabled = false;
-    showToast('La pala volverá a marcar…');
-  });
-
-  document.getElementById('mute').addEventListener('click', () => {
-    video.muted = !video.muted;
-    document.getElementById('mute').querySelector('.control-icon').textContent = video.muted ? '🔇' : '🔊';
-    showToast(video.muted ? 'Sonido apagado' : 'Sonido activado');
-  });
-
-  document.getElementById('work').addEventListener('click', () => showToast('A CHAMBEAR 12 HORAS 👊'));
-  video.addEventListener('click', () => { video.muted = !video.muted; showToast(video.muted ? 'Sonido apagado' : 'Sonido activado'); });
+(()=>{
+ const incoming=document.getElementById('incoming'),call=document.getElementById('call');
+ const video=document.getElementById('video'),toast=document.getElementById('toast');
+ let toastTimer;
+ function notify(message){toast.textContent=message;toast.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(()=>toast.style.display='none',2500)}
+ document.getElementById('si').addEventListener('click',async()=>{
+  incoming.style.display='none';call.style.display='flex';
+  try{await video.play()}catch(e){video.muted=true;try{await video.play()}catch(err){}notify('No se pudo cargar chamba.mp4. Revisa que esté en el repositorio.')}
+ });
+ document.getElementById('no').addEventListener('click',()=>notify('La pala volverá a marcar…'));
+ document.getElementById('end').addEventListener('click',()=>{
+  video.pause();video.currentTime=0;call.style.display='none';incoming.style.display='flex';notify('Llamada finalizada');
+ });
+ document.getElementById('mute').addEventListener('click',()=>{
+  video.muted=!video.muted;document.querySelector('#mute .control-icon').textContent=video.muted?'🔇':'🔊';
+  notify(video.muted?'Sonido apagado':'Sonido activado');
+ });
+ document.getElementById('work').addEventListener('click',()=>notify('¡A CHAMBEAR, SOLDADO! 👊'));
+ video.addEventListener('click',()=>{video.muted=!video.muted;document.querySelector('#mute .control-icon').textContent=video.muted?'🔇':'🔊'});
 })();
 </script>
 </body>
